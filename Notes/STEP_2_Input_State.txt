@@ -1,0 +1,39 @@
+STEP 2: Handle User Input with State
+======================================
+
+GOAL: Make the search input functional using React state
+
+TASKS:
+------
+1. Import useState from React
+2. Create a state variable for the city input
+3. Add an onChange handler to the input field
+4. Update the state when user types
+5. Add an onSubmit handler for the search button
+6. Console.log the city name when search is clicked
+
+CONCEPTS YOU'LL LEARN:
+----------------------
+- useState hook
+- Controlled inputs
+- Event handlers (onChange, onClick)
+- State updates
+
+EXPECTED OUTPUT:
+----------------
+- User can type a city name in the input
+- When clicking search, the city name appears in console
+- Input value is controlled by React state
+
+CODE STRUCTURE:
+---------------
+const [city, setCity] = useState('');
+
+<input 
+  value={city}
+  onChange={(e) => setCity(e.target.value)}
+/>
+
+HINT:
+-----
+Remember: controlled inputs have their value tied to state!

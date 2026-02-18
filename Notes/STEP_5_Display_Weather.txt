@@ -1,0 +1,55 @@
+STEP 5: Display Weather Information
+=====================================
+
+GOAL: Show the weather data in a nice, readable format
+
+TASKS:
+------
+1. Use conditional rendering to show weather only when data exists
+2. Display the following information:
+   - City name
+   - Temperature (°C)
+   - Weather description
+   - Humidity (%)
+   - Wind speed (m/s)
+   - Weather icon from API
+
+3. Style the weather display nicely
+4. Clear input after successful search (optional)
+
+CONCEPTS YOU'LL LEARN:
+----------------------
+- Conditional rendering (&&, ternary operator)
+- Displaying nested object data
+- Working with weather icons
+- Dynamic content rendering
+
+CODE STRUCTURE:
+---------------
+{weatherData && (
+  <div className="weather-display">
+    <h2>{weatherData.name}</h2>
+    <img 
+      src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+      alt={weatherData.weather[0].description}
+    />
+    <p className="temperature">{Math.round(weatherData.main.temp)}°C</p>
+    <p className="description">{weatherData.weather[0].description}</p>
+    <div className="details">
+      <p>Humidity: {weatherData.main.humidity}%</p>
+      <p>Wind: {weatherData.wind.speed} m/s</p>
+    </div>
+  </div>
+)}
+
+STYLING TIPS:
+-------------
+- Use flexbox for layout
+- Make temperature large and prominent
+- Center align text
+- Add some padding and borders
+- Use nice colors
+
+HINT:
+-----
+Use Math.round() to show whole numbers for temperature!

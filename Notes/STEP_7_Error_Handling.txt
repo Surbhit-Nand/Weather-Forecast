@@ -1,0 +1,72 @@
+STEP 7: Handle Errors Gracefully
+==================================
+
+GOAL: Show helpful error messages when things go wrong
+
+TASKS:
+------
+1. Create an error state variable
+2. Wrap fetch in try-catch block
+3. Check if the API response is successful
+4. Handle different error scenarios:
+   - City not found (404)
+   - Network errors
+   - Invalid API key
+5. Display error messages to the user
+6. Clear error when starting a new search
+
+CONCEPTS YOU'LL LEARN:
+----------------------
+- Error handling with try-catch
+- HTTP status codes
+- User-friendly error messages
+- Resetting error state
+
+CODE STRUCTURE:
+---------------
+const [error, setError] = useState('');
+
+const fetchWeather = async () => {
+  setLoading(true);
+  setError(''); // Clear previous errors
+  
+  try {
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('City not found. Please check the spelling.');
+      }
+      throw new Error('Something went wrong. Please try again.');
+    }
+    
+    const data = await response.json();
+    setWeatherData(data);
+  } catch (err) {
+    setError(err.message);
+    setWeatherData(null); // Clear old weather data
+  } finally {
+    setLoading(false);
+  }
+};
+
+// In JSX:
+{error && <p className="error">{error}</p>}
+
+ERROR SCENARIOS TO HANDLE:
+--------------------------
+- Empty city input
+- City not found (404)
+- Network connection issues
+- Invalid API key (401)
+- API rate limit exceeded (429)
+
+STYLING:
+--------
+- Use red color for error messages
+- Make errors stand out visually
+- Clear previous weather data on error
+
+HINT:
+-----
+Test errors by searching for nonsense cities like "asdfghjkl"!

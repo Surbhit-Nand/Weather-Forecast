@@ -1,0 +1,50 @@
+STEP 6: Add Loading State
+==========================
+
+GOAL: Show a loading indicator while fetching data
+
+TASKS:
+------
+1. Create a loading state variable
+2. Set loading to true when starting fetch
+3. Set loading to false when fetch completes
+4. Display a loading message/spinner while loading
+5. Disable the search button while loading
+
+CONCEPTS YOU'LL LEARN:
+----------------------
+- Managing loading states
+- Better UX practices
+- Multiple state variables
+- Conditional UI rendering
+
+CODE STRUCTURE:
+---------------
+const [loading, setLoading] = useState(false);
+
+const fetchWeather = async () => {
+  setLoading(true);
+  try {
+    // ... fetch code
+  } finally {
+    setLoading(false);
+  }
+};
+
+// In JSX:
+{loading && <p>Loading weather data...</p>}
+
+<button onClick={handleSearch} disabled={loading}>
+  {loading ? 'Searching...' : 'Search'}
+</button>
+
+STYLING TIPS:
+-------------
+- You can use a simple "Loading..." text
+- Or create a CSS spinner animation
+- Change button style when disabled
+- Use opacity or cursor changes
+
+HINT:
+-----
+The finally block ensures loading is set to false even if there's an error!
