@@ -1,4 +1,77 @@
-# React + TypeScript + Vite
+# Weather Forecast App
+
+A modern, responsive weather forecast application built with React, TypeScript, and Vite. Get real-time weather data, 5-day forecasts, and interactive weather graphs for any city worldwide.
+
+## Features
+
+- 🌡️ Real-time weather data and conditions
+- 📊 Interactive graphs (Temperature, Rain, Wind Speed)
+- 📅 5-day weather forecast
+- 🌙 Dark mode support
+- 📱 Fully responsive design
+- 🎨 Beautiful gradient UI with smooth animations
+- 💨 Wind speed categorization
+- 🔍 City search functionality
+
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Surbhitnand001/Weather-Forecast.git
+cd Weather-Forecast
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Get your OpenWeatherMap API Key
+
+1. Go to [OpenWeatherMap](https://openweathermap.org/)
+2. Sign up for a free account
+3. Navigate to API Keys section
+4. Copy your API key
+
+### 4. Configure environment variables
+
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` and replace `your_api_key_here` with your actual API key:
+   ```
+   VITE_WEATHER_API_KEY=your_actual_api_key
+   ```
+
+### 5. Run the development server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` to see the app!
+
+## Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Technologies Used
+
+- React 18
+- TypeScript
+- Vite
+- OpenWeatherMap API
+- CSS3 with modern animations
+
+---
+
+## Original Vite Template Info
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,9 +90,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -34,40 +107,40 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```

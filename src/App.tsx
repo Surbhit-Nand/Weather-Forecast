@@ -262,10 +262,6 @@ function App() {
       <header className="header">
         <div className="header-left">
           <div className="logo">🌤️ WEATHER</div>
-          <div className="greeting">
-            <h2>Hello,</h2>
-            <h3>John Doe</h3>
-          </div>
         </div>
         <div className="header-center">
           <div className="search-box">
